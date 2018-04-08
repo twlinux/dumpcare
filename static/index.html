@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css" media="screen,projection" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style type="text/css">
+    ::selection {
+      color: white;
+      background: red;
+    }
+
+    ::-moz-selection {
+      color: white;
+      background: red;
+    }
+
+    .input-field input[type=text] {
+      color: white !important;
+    }
+
+    /* label focus color */
+
+    .input-field input[type=text]:focus+label {
+      color: white !important;
+    }
+
+    /* label underline focus color */
+
+    .input-field input[type=text]:focus {
+      border-bottom: 1px solid white !important;
+      box-shadow: 0 1px 0 0 white !important;
+    }
+
+    /* valid color */
+
+    .input-field input[type=text].valid {
+      border-bottom: 1px solid white;
+      box-shadow: 0 1px 0 0 white;
+    }
+
+    /* invalid color */
+
+    .input-field input[type=text].invalid {
+      border-bottom: 1px solid white;
+      box-shadow: 0 1px 0 0 white;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <nav class="red" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" class="brand-logo">TrumpCare</a>
+      <ul id="nav-mobile" class="right">
+        <li>
+          <a href="https://www.healthcare.gov/">healthcare.gov</a>
+        </li>
+        <li>
+          <a href="https://twlinux.github.io">Wootton Red Team</a>
+        </li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <div class="parallax-container">
+    <div class="container">
+      <h1 class="header center red-text">TrumpCare</h1>
+      <div class="row center">
+        <h5 class="header col s12 light white-text">A modern, and disruptive approach to
+          <em id="xd">data mining</em> in the 21st century.</h5>
+      </div>
+      <div class="row center">
+        <a href="#form" class="btn-large waves-effect waves-light red">Get Started</a>
+      </div>
+    </div>
+    <div class="parallax" style="filter: brightness(60%)">
+      <img src="/donald-trump-american-flag.jpg" />
+    </div>
+  </div>
+
+  <section class="container">
+    <div class="row">
+      <div class="col s5">
+        <h4 class="red-text">Data-driven policy.</h4>
+        <p class="flow-text">
+          Our administration's cooperation with <em>Cambridge Analytica</em> demonstrates the latest applications of information age technology.
+        </p>
+        <blockquote class="light">
+          This is extremely dangerous to our democracy.
+          <br /> -- Sinclair Broadcasting Group
+        </blockquote>
+      </div>
+      <div class="col s7">
+        <canvas id="chart" height="300" style="width: 100%; display: block; margin-top: 40px;"></canvas>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6">
+        <img src="/trump-health-doctor.jpg" alt="outpatient clinic" class="responsive-img materialboxed" />
+      </div>
+      <div class="col s6">
+        <h4 class="red-text">Health Care Professionals</h4>
+        <p class="flow-text">I spent way too much effort on this meaningless website.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s6">
+        <h4 class="red-text">Open Source.</h4>
+        <p class="flow-text">They call me the python3 God. Get the code
+          <a class="red-text" href="/sauce">here</a>.</p>
+      </div>
+      <div class="col s6">
+        <img src="/carbon.svg" alt="carbon" class="responsive-img materialboxed" data-caption="Based on flask 0.12, a BSD-licensed framework."/>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="page-footer red lighten-1">
+    <form class="container" action="maga" method="POST">
+
+      <h1>
+        <a name="form" class="white-text">Sign Up Now!</a>
+      </h1>
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="name" type="text" />
+          <label for="name">Full Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="phone" type="text">
+          <label for="phone">10 Digit Phone Number</label>
+        </div>
+        <div class="col s6 center">
+
+          <button class="white red-text btn-large waves-effect waves-red" type="submit" name="action">Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </footer>
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/Chart.min.js"></script>
+  <script type="text/javascript">
+
+    [...document.getElementsByClassName('parallax')].forEach(e => {
+      M.Parallax.init(e);
+    });
+    [...document.getElementsByClassName('materialboxed')].forEach(e => {
+      M.Materialbox.init(e);
+    })
+
+    setTimeout(function () {
+      document.getElementById('xd').innerText = 'health care';
+    }, 500);
+
+    let draw = Chart.controllers.line.prototype.draw;
+    Chart.controllers.line = Chart.controllers.line.extend({
+      draw: function () {
+        draw.apply(this, arguments);
+        let ctx = this.chart.chart.ctx;
+        let _stroke = ctx.stroke;
+        ctx.stroke = function () {
+          ctx.save();
+          ctx.shadowColor = 'grey';
+          ctx.shadowBlur = 10;
+          ctx.shadowOffsetX = 0;
+          ctx.shadowOffsetY = 10;
+          _stroke.apply(this, arguments)
+          ctx.restore();
+        }
+      }
+    });
+
+    new Chart(document.getElementById('chart').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ["May", "Jun", 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', "Jan", "Feb", "Mar", "Apr"],
+        datasets: [{
+          label: 'Healthy People',
+          data: [3, 2, 2, 3, 3, 2, 4, 6, 9, 8, 9, 10],
+          fill: false,
+          borderColor: "red",
+          pointRadius: 0
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            display: true,
+            ticks: {
+              display: false,
+              min: 1,
+              max: 11,
+              stepSize: 2
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              display: false
+            }
+          }]
+        },
+        legend: {
+          display: false
+        },
+        tooltips: {
+          enabled: false
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>
