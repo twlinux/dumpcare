@@ -16,35 +16,17 @@
       background: red;
     }
 
-    .input-field input[type=text] {
-      color: white !important;
-    }
-
     /* label focus color */
 
     .input-field input[type=text]:focus+label {
-      color: white !important;
+      color: red !important;
     }
 
     /* label underline focus color */
 
     .input-field input[type=text]:focus {
-      border-bottom: 1px solid white !important;
-      box-shadow: 0 1px 0 0 white !important;
-    }
-
-    /* valid color */
-
-    .input-field input[type=text].valid {
-      border-bottom: 1px solid white;
-      box-shadow: 0 1px 0 0 white;
-    }
-
-    /* invalid color */
-
-    .input-field input[type=text].invalid {
-      border-bottom: 1px solid white;
-      box-shadow: 0 1px 0 0 white;
+      border-bottom: 1px solid red !important;
+      box-shadow: 0 1px 0 0 red !important;
     }
   </style>
 </head>
@@ -71,7 +53,7 @@
     <div class="container">
       <h1 class="header center red-text">TrumpCare</h1>
       <div class="row center">
-        <h5 class="header col s12 light white-text">A modern, and disruptive approach to
+        <h5 class="header col s12 light white-text">A modern and disruptive approach to
           <em id="xd">data mining</em> in the 21st century.</h5>
       </div>
       <div class="row center">
@@ -86,9 +68,10 @@
   <section class="container">
     <div class="row">
       <div class="col s5">
-        <h4 class="red-text">Data-driven policy.</h4>
+        <h4 class="red-text">Data-driven policy</h4>
         <p class="flow-text">
-          Our administration's cooperation with <em>Cambridge Analytica</em> demonstrates the latest applications of information age technology.
+          Our administration's cooperation with
+          <em>Cambridge Analytica</em> demonstrates the latest applications of information age technology.
         </p>
         <blockquote class="light">
           This is extremely dangerous to our democracy.
@@ -116,37 +99,39 @@
           <a class="red-text" href="/sauce">here</a>.</p>
       </div>
       <div class="col s6">
-        <img src="/carbon.svg" alt="carbon" class="responsive-img materialboxed" data-caption="Based on flask 0.12, a BSD-licensed framework."/>
+        <img src="/carbon.svg" alt="carbon" class="responsive-img materialboxed" data-caption="Based on flask 0.12, a BSD-licensed framework."
+        />
       </div>
     </div>
 
   </section>
 
   <footer class="page-footer red lighten-1">
-    <form class="container" action="maga" method="POST">
+    <div class="container row">
+      <div class="col s12 m8">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <a name="form" class="red-text">Sign Up Now!</a>
+            </span>
+            <form action="maga" method="POST">
 
-      <h1>
-        <a name="form" class="white-text">Sign Up Now!</a>
-      </h1>
-      <div class="row">
-        <div class="input-field col s6">
-          <input name="name" type="text" />
-          <label for="name">Full Name</label>
+              <div class="input-field">
+                <input name="name" type="text" />
+                <label for="name">Full Name</label>
+              </div>
+              <div class="input-field">
+                <input name="phone" type="text">
+                <label for="phone">10 Digit Phone Number</label>
+              </div>
+              <button class="white red-text btn-large waves-effect waves-red" type="submit" name="action">Submit
+              </button>
+            </form>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="input-field col s6">
-          <input name="phone" type="text">
-          <label for="phone">10 Digit Phone Number</label>
-        </div>
-        <div class="col s6 center">
-
-          <button class="white red-text btn-large waves-effect waves-red" type="submit" name="action">Submit
-          </button>
-        </div>
-      </div>
-    </form>
   </footer>
 
   <!--JavaScript at end of body for optimized loading-->
