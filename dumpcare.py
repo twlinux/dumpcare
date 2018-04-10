@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, render_template, render_template_string, send_from_directory, request
-from jinja2 import Environment, FileSystemLoader
+import os
 
 app = Flask(__name__, static_url_path='')
 
@@ -46,4 +46,4 @@ def sauce():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=7777, threaded=True)
+    app.run(host='0.0.0.0', port=os.getenv('PORT', 7777), threaded=True)
