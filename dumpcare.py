@@ -34,7 +34,7 @@ def check():
     if len(phone) < 10:
         return goodbye("Your phone numbers can't be less than 10 digits!")
     if not phone.isdigit():
-        return goodbye("You've entered \"" + request.form['phone']
+        return goodbye("You've entered \"" + phone
                        + "\" as your phone number. "
                        + "Nice try, script kiddie, but this application uses server-side verification.")
     return goodbye("Thank you! Trump is caring for you now.")
@@ -42,7 +42,7 @@ def check():
 
 @app.route("/sauce")
 def sauce():
-    return send_from_directory('./', 'dump.py')
+    return send_from_directory('./', 'dumpcare.py')
 
 
 if __name__ == "__main__":
