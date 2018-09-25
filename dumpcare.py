@@ -34,9 +34,8 @@ def check():
     if len(phone) < 10:
         return goodbye("Your phone numbers can't be less than 10 digits!")
     if not phone.isdigit():
-        return goodbye("You've entered \"" + phone
-                       + "\" as your phone number. "
-                       + "Nice try, script kiddie, but this application uses server-side verification.")
+        return goodbye("\"" + phone + "\" is not a valid phone number. "
+                       + "Please try again and omit any symbols.")
     return goodbye("Thank you! Trump is caring for you now.")
 
 
